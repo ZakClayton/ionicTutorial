@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-
 import { NavController, NavParams } from 'ionic-angular';
+import {ItemMoreDetailsPage} from "../item-more-details/item-more-details";
 
 
 @Component({
@@ -13,5 +13,11 @@ export class ItemDetailsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
+  }
+
+  itemTapped(event, item) {
+    this.navCtrl.push(ItemMoreDetailsPage, {
+      selectedItem: item
+    });
   }
 }
